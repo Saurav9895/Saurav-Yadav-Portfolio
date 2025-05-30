@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
     darkMode: ["class"],
@@ -8,7 +9,17 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
   	extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+      },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -82,11 +93,23 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+        'input-focus': {
+          '0%': { 'box-shadow': '0 0 0 0px hsl(var(--primary) / 0.3)' },
+          '100%': { 'box-shadow': '0 0 0 3px hsl(var(--primary) / 0.3)' },
+        },
+        'particle': {
+          '0%': { transform: 'translateY(0) translateX(0) scale(1)', opacity: '1' },
+          '100%': { transform: 'translateY(-100px) translateX(20px) scale(0.5)', opacity: '0' },
+        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        'input-focus': 'input-focus 0.3s ease-out forwards',
+        'particle-slow': 'particle 20s linear infinite',
+        'particle-medium': 'particle 15s linear infinite',
+        'particle-fast': 'particle 10s linear infinite',
   		}
   	}
   },
