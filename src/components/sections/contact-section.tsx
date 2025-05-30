@@ -29,9 +29,9 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com/sauravkumaryadav309" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/saurav-kumar-yadav-iit-dhanbad" },
-  { name: "LeetCode", icon: Code2, href: "https://leetcode.com/sauravkumaryadav309/" },
+  { name: "GitHub", icon: Github, href: "https://github.com/saurav9895" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/saurav-yadav-434842207/" },
+  { name: "LeetCode", icon: Code2, href: "https://leetcode.com/u/saurav9895/" },
 ];
 
 export function ContactSection() {

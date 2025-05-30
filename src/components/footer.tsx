@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from 'react';
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com/sauravkumaryadav309" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/saurav-kumar-yadav-iit-dhanbad" },
-  { name: "LeetCode", icon: Code2, href: "https://leetcode.com/sauravkumaryadav309/" },
+  { name: "GitHub", icon: Github, href: "https://github.com/saurav9895" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/saurav-yadav-434842207/" },
+  { name: "LeetCode", icon: Code2, href: "https://leetcode.com/u/saurav9895/" },
   { name: "Email", icon: Mail, href: "mailto:sauravkumaryadav309@gmail.com" },
   { name: "Phone", icon: Phone, href: "tel:+919155917535" },
 ];
