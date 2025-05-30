@@ -40,6 +40,7 @@ export const skillsData: SkillCategory[] = [
     name: "Backend & Database",
     icon: Database,
     skills: [
+      { name: "Node Js" },
       { name: "PHP" },
       { name: "SQL" },
     ],
@@ -72,44 +73,46 @@ export const projectsData: Project[] = [
     name: "Coding Platform",
     techStack: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
     description: "A full-stack coding platform similar to LeetCode, featuring problem solving, code submissions, and user profiles.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageHint: "code editor",
-    githubLink: "https://github.com/sauravkumaryadav309/coding-platform",
+    liveDemoLink: "https://binary-code.vercel.app/",
   },
   {
     id: "judiciary-system",
     name: "Judiciary Management System",
     techStack: ["PHP", "MySQL", "Bootstrap"],
     description: "A web application for managing judiciary cases, records, and schedules for legal professionals.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://plus.unsplash.com/premium_photo-1661342406765-43d30862060b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageHint: "legal system",
-    githubLink: "https://github.com/sauravkumaryadav309/judiciary-management",
+    githubLink: "https://github.com/Saurav9895/Judiaciary-Management-System",
   },
   {
     id: "service-finder",
     name: "Service Finder",
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     description: "A platform connecting users with local service providers, featuring search, booking, and reviews.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://as-service.vercel.app/_next/image?url=%2Fimage.png&w=640&q=75",
     imageHint: "map services",
-    liveDemoLink: "#", // Add actual link if available
+    liveDemoLink: "https://as-service.vercel.app/", 
   },
   {
     id: "jarvis-assistant",
     name: "Jarvis Desktop Assistant",
     techStack: ["Python", "AI/ML Libraries"],
     description: "A voice-controlled desktop assistant inspired by Jarvis, capable of performing various tasks.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://images.unsplash.com/photo-1624948384140-e48e47087fad?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageHint: "ai assistant",
-    githubLink: "https://github.com/sauravkumaryadav309/jarvis-assistant",
+    githubLink: "https://github.com/Saurav9895/Jarvis-AI-Desktop-Personal-Voice-Assista",
   },
   {
     id: "rc-car",
     name: "Arduino RC Bluetooth Car",
     techStack: ["Arduino", "C++", "Bluetooth"],
     description: "A remote-controlled car built using Arduino, controlled via a Bluetooth-enabled mobile application.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://images.unsplash.com/photo-1727622738037-65923e2319d9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageHint: "rc car",
+    githubLink: "https://github.com/Saurav9895/aurdino",
+
   },
 ];
 
@@ -137,9 +140,9 @@ export const experienceData: Experience[] = [
   },
   {
     id: "digital-shikhar",
-    role: "Software Development Engineer (SDE Intern)",
+    role: "Software Development Engineer",
     company: "Digital Shikhar Pvt. Ltd.",
-    period: "May 2023 – July 2023",
+    period: "Jan 2021 – Jan 2024",
     description: [
       "Contributed to the development of Uparkart, an e-commerce platform.",
       "Worked on frontend and backend features using React and Node.js.",
@@ -166,7 +169,7 @@ export const publicationsData: Publication[] = [
     authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2021",
-    link: "#", 
+    link: "https://ieeexplore.ieee.org/document/9683524", 
     publisherIcon: BookOpen,
   },
   {
@@ -175,7 +178,7 @@ export const publicationsData: Publication[] = [
     authors: "Saurav K. Yadav, et al.",
     conference: "Springer",
     year: "2024",
-    link: "#", 
+    link: "#", // Placeholder link, update if available
     publisherIcon: BookOpen,
   },
   {
@@ -184,7 +187,7 @@ export const publicationsData: Publication[] = [
     authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2024",
-    link: "#",
+    link: "https://ieeexplore.ieee.org/document/10502580",
     publisherIcon: BookOpen,
   },
   {
@@ -227,14 +230,12 @@ export const achievementsData: Achievement[] = [
     title: "Study in India Scholarship (Bachelors)",
     description: "Awarded a full scholarship to pursue Bachelor’s degree through the Study in India program.",
     icon: GraduationCap,
-    // Year can be added if known, e.g., "2018-2022"
   },
   {
     id: "scholarship-masters",
     title: "Full Scholarship (Masters)",
     description: "Awarded a full scholarship to pursue Master’s degree.",
     icon: GraduationCap,
-    // Year can be added if known, e.g., "2022-2024"
   },
 ];
 
@@ -257,7 +258,40 @@ export const aboutMeData = {
   introduction: "Hi, I'm Saurav Kumar Yadav, a passionate Software Engineer and Web Developer with over 2 years of experience in crafting robust and scalable digital solutions. I specialize in frontend technologies like React and Next.js, but I'm comfortable across the full stack.",
   education: "I hold a Master's degree from IIT (ISM) Dhanbad, one of India's premier engineering institutes. My academic journey has been supported by full scholarships for both my Bachelor's and Master's programs, a testament to my dedication and performance.",
   passion: "My core passion lies in leveraging web technologies to build innovative products that solve real-world problems. I'm a firm believer in continuous learning and always eager to explore new tools and frameworks.",
-  profileImageUrl: "https://placehold.co/400x400.png",
+  profileImageUrl: "https://placehold.co/400x400.png", // This should be a valid placeholder or actual image URL
   profileImageHint: "profile portrait",
   resumeUrl: "#", // Replace with actual resume link
 };
+
+// Ensure all image URLs from unsplash use 'images.unsplash.com' or 'plus.unsplash.com'
+// For project "coding-platform", the URL was "https://placehold.co/600x400.pnghttps://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+// It seems like two URLs were concatenated. I'll use the unsplash one and ensure the hostname is 'images.unsplash.com'.
+// The "service-finder" imageUrl points to "as-service.vercel.app" which needs to be allowed.
+// The "jarvis-assistant" and "rc-car" images are from images.unsplash.com, which is fine.
+// The "judiciary-system" image is from plus.unsplash.com, which we are adding.
+
+projectsData.forEach(project => {
+  if (project.imageUrl && project.imageUrl.includes("images.unsplash.com") && !project.imageUrl.startsWith("https://images.unsplash.com")) {
+    // Correct if there's an issue like concatenation
+    const unsplashPart = project.imageUrl.substring(project.imageUrl.indexOf("https://images.unsplash.com"));
+    project.imageUrl = unsplashPart;
+  }
+  // If you intend to use placehold.co for a project, ensure it's just that, e.g., "https://placehold.co/600x400.png"
+});
+// Example correction for the coding platform if it was meant to be Unsplash:
+const codingPlatformProject = projectsData.find(p => p.id === "coding-platform");
+if (codingPlatformProject && codingPlatformProject.imageUrl && codingPlatformProject.imageUrl.includes("images.unsplash.com")) {
+    if(codingPlatformProject.imageUrl !== "https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") {
+        // This logic is a bit redundant if the URL is already correct, but good for ensuring it.
+        // The provided URL for coding platform in portfolio-data.ts was a bit mixed up.
+        codingPlatformProject.imageUrl = "https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+    }
+}
+
+// Ensure as-service.vercel.app is also allowed if it's used.
+// Ensure profileImageUrl in aboutMeData is either a placehold.co URL or an allowed Unsplash URL.
+if (aboutMeData.profileImageUrl && !aboutMeData.profileImageUrl.startsWith("https://placehold.co")) {
+    // If it's meant to be an unsplash image, ensure it's from an allowed domain.
+    // For now, it's placehold.co, which is fine.
+}
+
