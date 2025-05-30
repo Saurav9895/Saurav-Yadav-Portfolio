@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from 'lucide-react';
 import { Code, Database, Wind, Cpu, Palette, GitBranch, GraduationCap, Briefcase, BookOpen, Award, Star, TrendingUp, Bot } from 'lucide-react';
 
@@ -123,6 +124,18 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
+    id: "inspire-group-nepal",
+    role: "Web Developer",
+    company: "Inspire Group Nepal Pvt. Ltd.",
+    period: "Feb 2024 – Oct 2024",
+    description: [
+      "Developed and maintained web applications using modern frontend and backend technologies.",
+      "Collaborated with cross-functional teams to deliver high-quality software solutions.",
+      "Participated in code reviews and contributed to improving code quality and development processes.",
+    ],
+    icon: Code,
+  },
+  {
     id: "digital-shikhar",
     role: "Software Development Engineer (SDE Intern)",
     company: "Digital Shikhar Pvt. Ltd.",
@@ -134,7 +147,6 @@ export const experienceData: Experience[] = [
     ],
     icon: Briefcase,
   },
-  // Add more experiences if any
 ];
 
 export interface Publication {
@@ -240,3 +252,4 @@ export const aboutMeData = {
   profileImageHint: "profile portrait",
   resumeUrl: "#", // Replace with actual resume link
 };
+
