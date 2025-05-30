@@ -4,34 +4,55 @@
 import { Button } from "@/components/ui/button";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageSquare } from "lucide-react"; // Removed Download icon
+import { ArrowRight, MessageSquare } from "lucide-react";
 import { heroSkillsSequence } from "@/data/portfolio-data";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react"; // Updated import
 
-const Particle = ({ delay }: { delay: number }) => {
-  const animationClass = ['animation-particle-slow', 'animation-particle-medium', 'animation-particle-fast'][Math.floor(Math.random() * 3)];
-  return (
-    <motion.div
-      className={`absolute rounded-full bg-primary/30`}
-      style={{
+const Particle = ({ animationStartDelay }: { animationStartDelay: number }) => {
+  const [particleConfig, setParticleConfig] = useState<{
+    style: React.CSSProperties;
+    animate: { y: number[]; x: number[]; scale: number[]; opacity: number[] };
+    transition: { duration: number; repeat: number; ease: string; delay: number };
+  } | null>(null);
+
+  useEffect(() => {
+    // All random generations happen here, only on the client after mount
+    setParticleConfig({
+      style: {
+        // Static styles are handled by className, dynamic styles (width, height, left, top) are here
         width: `${Math.random() * 5 + 2}px`,
         height: `${Math.random() * 5 + 2}px`,
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
-        animationDelay: `${delay}s`,
-      }}
-      animate={{
+      },
+      animate: {
         y: [0, Math.random() * 100 - 50, 0],
         x: [0, Math.random() * 100 - 50, 0],
         scale: [1, 1.5, 1],
         opacity: [0.5, 1, 0.5],
-      }}
-      transition={{
+      },
+      transition: {
         duration: Math.random() * 10 + 10,
         repeat: Infinity,
         ease: "linear",
-      }}
+        delay: animationStartDelay, // Use the passed delay for the Framer Motion animation start.
+      },
+    });
+  }, [animationStartDelay]); // Dependency array ensures this runs when animationStartDelay is available.
+
+  if (!particleConfig) {
+    // Render null or a placeholder before client-side state is ready
+    // This is crucial to avoid hydration mismatch.
+    return null;
+  }
+
+  return (
+    <motion.div
+      className="absolute rounded-full bg-primary/30" // Static classes from original implementation
+      style={particleConfig.style} // Apply dynamic styles
+      animate={particleConfig.animate}
+      transition={particleConfig.transition}
     />
   );
 };
@@ -58,7 +79,7 @@ export function HeroSection() {
       {/* Particle Background */}
       <div className="absolute inset-0 z-0 opacity-70 dark:opacity-50">
         {Array.from({ length: 30 }).map((_, i) => (
-          <Particle key={i} delay={Math.random() * 5} />
+          <Particle key={i} animationStartDelay={Math.random() * 5} />
         ))}
       </div>
       
@@ -98,7 +119,6 @@ export function HeroSection() {
             variants={itemVariants}
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            {/* "View Resume" button removed */}
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto shadow-lg hover:shadow-accent/50 transform transition-all duration-300 hover:scale-105 hover:border-accent">
               <Link href="#contact">
                 Let&apos;s Connect <MessageSquare className="ml-2 h-5 w-5" />
