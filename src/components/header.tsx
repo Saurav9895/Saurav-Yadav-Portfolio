@@ -5,6 +5,7 @@ import { ThemeToggleButton } from "./theme-toggle-button";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import React from "react";
+import { Button } from "@/components/ui/button"; // Added import
 
 const navItems = [
   { name: "About", href: "#about" },
