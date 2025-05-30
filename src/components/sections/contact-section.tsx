@@ -11,8 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-// Removed useToast as it's not used for submission status with formsubmit.co
-import { Linkedin, Mail, Phone, Send, Facebook, Instagram } from "lucide-react"; // Removed Loader2
+import { Linkedin, Mail, Phone, Send, Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -31,18 +30,17 @@ const socialLinks = [
 ];
 
 export function ContactSection() {
-  // Removed isSubmitting state and formRef
-
   const {
     register,
-    handleSubmit, // handleSubmit is kept for react-hook-form's validation triggering
+    // handleSubmit is no longer used directly on the form's onSubmit
     formState: { errors },
-    reset, // Kept reset, though formsubmit.co might redirect away
+    // reset is no longer called after submit
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
+    // If you want errors to show up as the user types or blurs,
+    // you might consider changing the mode:
+    // mode: "onChange" or "onBlur"
   });
-
-  // Removed onSubmit handler that used emailjs
 
   const inputVariants = {
     rest: { scale: 1, boxShadow: "0px 0px 0px hsla(var(--primary), 0)" },
@@ -88,18 +86,11 @@ export function ContactSection() {
         </MotionDiv>
 
         <MotionDiv className="bg-card p-6 sm:p-8 rounded-xl shadow-2xl border border-border">
-          {/* Updated form tag for formsubmit.co */}
-          <form 
-            action="https://formsubmit.co/d05b9a01cadd0e30d9d19750244bbc07" 
-            method="POST" 
+          <form
+            action="https://formsubmit.co/d05b9a01cadd0e30d9d19750244bbc07"
+            method="POST"
             className="space-y-6"
-            onSubmit={handleSubmit(() => {
-              // RHF validation runs. If it passes, form submits.
-              // We can call reset() here, but formsubmit.co often redirects.
-              // Consider if reset is needed or if redirect handles clearing.
-              // For now, let's keep reset optimistic, it might not visually do much if redirect is fast.
-              setTimeout(() => reset(), 100); // Small delay for submission to potentially start
-            })}
+            // Removed onSubmit prop to use direct HTML form submission
           >
             {/* Hidden field for subject */}
             <input type="hidden" name="_subject" value="New Contact Form Submission - SK Yadav Portfolio" />
@@ -107,7 +98,6 @@ export function ContactSection() {
             {/* <input type="hidden" name="_next" value="https://yoursite.com/thankyou.html" /> */}
             {/* Optional: disable captcha (not recommended for live sites) */}
             {/* <input type="hidden" name="_captcha" value="false" /> */}
-
 
             <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
               <Label htmlFor="name">Full Name</Label>
@@ -120,7 +110,7 @@ export function ContactSection() {
               <Input id="email" type="email" placeholder="your.email@example.com" {...register("email")} className="mt-1"/>
               {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
             </motion.div>
-            
+
             <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
               <Label htmlFor="message">Your Message</Label>
               <Textarea
@@ -132,9 +122,8 @@ export function ContactSection() {
               />
               {errors.message && <p className="text-sm text-destructive mt-1">{errors.message.message}</p>}
             </motion.div>
-            
+
             <div className="flex flex-col sm:flex-row gap-3">
-              {/* Removed isSubmitting and Loader2 */}
               <Button type="submit" className="w-full group">
                 <Send className="mr-2 h-4 w-4 group-hover:animate-pulse" />
                 Send Message
@@ -146,4 +135,3 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
-
