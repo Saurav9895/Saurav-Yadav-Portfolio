@@ -93,7 +93,7 @@ export const projectsData: Project[] = [
     description: "A platform connecting users with local service providers, featuring search, booking, and reviews.",
     imageUrl: "https://as-service.vercel.app/_next/image?url=%2Fimage.png&w=640&q=75",
     imageHint: "map services",
-    liveDemoLink: "https://as-service.vercel.app/", 
+    liveDemoLink: "https://as-service.vercel.app/",
   },
   {
     id: "jarvis-assistant",
@@ -132,9 +132,9 @@ export const experienceData: Experience[] = [
     company: "Inspire Group Nepal Pvt. Ltd.",
     period: "Feb 2024 – Oct 2024",
     description: [
-      "Developed and maintained web applications using modern frontend and backend technologies.",
-      "Collaborated with cross-functional teams to deliver high-quality software solutions.",
-      "Participated in code reviews and contributed to improving code quality and development processes.",
+      "Built and maintained full-stack web apps using modern technologies.",
+      "Teamed up with designers and testers to deliver quality products.",
+      "Participated in reviews to enhance code standards and workflows.",
     ],
     icon: Code,
   },
@@ -144,9 +144,9 @@ export const experienceData: Experience[] = [
     company: "Digital Shikhar Pvt. Ltd.",
     period: "Jan 2021 – Jan 2024",
     description: [
-      "Contributed to the development of Uparkart, an e-commerce platform.",
-      "Worked on frontend and backend features using React and Node.js.",
-      "Collaborated with a team of developers in an Agile environment.",
+      "Helped develop Uparkart, a scalable e-commerce platform.",
+      "Built frontend and backend features using React and Node.js",
+      "Worked closely with team members in an Agile environment.",
     ],
     icon: Briefcase,
   },
@@ -155,7 +155,7 @@ export const experienceData: Experience[] = [
 export interface Publication {
   id: string;
   title: string;
-  authors: string;
+  // authors: string; // Removed authors
   conference: string; // Can be journal or conference name
   year: string;
   link: string;
@@ -166,16 +166,16 @@ export const publicationsData: Publication[] = [
   {
     id: "pub1",
     title: "A Brief Comparison on Machine Learning Algorithms Based on Various Applications: A Comprehensive Survey.",
-    authors: "Saurav K. Yadav, et al.",
+    // authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2021",
-    link: "https://ieeexplore.ieee.org/document/9683524", 
+    link: "https://ieeexplore.ieee.org/document/9683524",
     publisherIcon: BookOpen,
   },
   {
     id: "pub2",
     title: "Chatbot Personalization: A Study of User-Centric Natural Language Processing in Python.",
-    authors: "Saurav K. Yadav, et al.",
+    // authors: "Saurav K. Yadav, et al.",
     conference: "Springer",
     year: "2024",
     link: "#", // Placeholder link, update if available
@@ -184,7 +184,7 @@ export const publicationsData: Publication[] = [
   {
     id: "pub3",
     title: "Resume shortlisting using NLP.",
-    authors: "Saurav K. Yadav, et al.",
+    // authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2024",
     link: "https://ieeexplore.ieee.org/document/10502580",
@@ -193,7 +193,7 @@ export const publicationsData: Publication[] = [
   {
     id: "pub4",
     title: "Binary's Code- A coding platform",
-    authors: "Saurav K. Yadav, et al.",
+    // authors: "Saurav K. Yadav, et al.",
     conference: "International Journal of Research Publication and Reviews",
     year: "2025",
     link: "https://ijrpr.com/uploads/V5ISSUE11/IJRPR35459.pdf",
@@ -222,7 +222,7 @@ export const achievementsData: Achievement[] = [
     id: "enigma-head-ops",
     title: "Head of Operations | ENIGMA Club",
     description: "Led the operational team for ENIGMA, the official coding club.",
-    icon: Star, 
+    icon: Star,
     year: "Jan 2023 - Dec 2023",
   },
   {
@@ -258,39 +258,21 @@ export const aboutMeData = {
   introduction: "Hi, I'm Saurav Kumar Yadav, a passionate Software Engineer and Web Developer with over 2 years of experience in crafting robust and scalable digital solutions. I specialize in frontend technologies like React and Next.js, but I'm comfortable across the full stack.",
   education: "I hold a Master's degree from IIT (ISM) Dhanbad, one of India's premier engineering institutes. My academic journey has been supported by full scholarships for both my Bachelor's and Master's programs, a testament to my dedication and performance.",
   passion: "My core passion lies in leveraging web technologies to build innovative products that solve real-world problems. I'm a firm believer in continuous learning and always eager to explore new tools and frameworks.",
-  profileImageUrl: "https://media.licdn.com/dms/image/v2/D5603AQHa1rQwCvcufg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709628693388?e=1753920000&v=beta&t=fVwJNXHRiLAoQ7wFHTRdyzMjBRRVyM_m1ruZ8OawuwU", 
+  profileImageUrl: "https://media.licdn.com/dms/image/v2/D5603AQHa1rQwCvcufg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709628693388?e=1753920000&v=beta&t=fVwJNXHRiLAoQ7wFHTRdyzMjBRRVyM_m1ruZ8OawuwU",
   profileImageHint: "profile portrait",
   resumeUrl: "#", // Replace with actual resume link
 };
 
-// Ensure all image URLs from unsplash use 'images.unsplash.com' or 'plus.unsplash.com'
-// For project "coding-platform", the URL was "https://placehold.co/600x400.pnghttps://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-// It seems like two URLs were concatenated. I'll use the unsplash one and ensure the hostname is 'images.unsplash.com'.
-// The "service-finder" imageUrl points to "as-service.vercel.app" which needs to be allowed.
-// The "jarvis-assistant" and "rc-car" images are from images.unsplash.com, which is fine.
-// The "judiciary-system" image is from plus.unsplash.com, which we are adding.
-
 projectsData.forEach(project => {
   if (project.imageUrl && project.imageUrl.includes("images.unsplash.com") && !project.imageUrl.startsWith("https://images.unsplash.com")) {
-    // Correct if there's an issue like concatenation
     const unsplashPart = project.imageUrl.substring(project.imageUrl.indexOf("https://images.unsplash.com"));
     project.imageUrl = unsplashPart;
   }
-  // If you intend to use placehold.co for a project, ensure it's just that, e.g., "https://placehold.co/600x400.png"
 });
-// Example correction for the coding platform if it was meant to be Unsplash:
+
 const codingPlatformProject = projectsData.find(p => p.id === "coding-platform");
 if (codingPlatformProject && codingPlatformProject.imageUrl && codingPlatformProject.imageUrl.includes("images.unsplash.com")) {
     if(codingPlatformProject.imageUrl !== "https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") {
-        // This logic is a bit redundant if the URL is already correct, but good for ensuring it.
-        // The provided URL for coding platform in portfolio-data.ts was a bit mixed up.
         codingPlatformProject.imageUrl = "https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
     }
-}
-
-// Ensure as-service.vercel.app is also allowed if it's used.
-// Ensure profileImageUrl in aboutMeData is either a placehold.co URL or an allowed Unsplash URL.
-if (aboutMeData.profileImageUrl && !aboutMeData.profileImageUrl.startsWith("https://placehold.co") && !aboutMeData.profileImageUrl.startsWith("https://media.licdn.com")) {
-    // If it's meant to be an unsplash image, ensure it's from an allowed domain.
-    // For now, it's placehold.co, which is fine.
 }

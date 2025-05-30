@@ -41,9 +41,7 @@ export function PublicationCard({ publication, index }: PublicationCardProps) {
           </div>
         </CardHeader>
         <CardContent className="flex-grow pb-4">
-          <p className="text-sm text-muted-foreground italic mb-3">
-            Authors: {publication.authors}
-          </p>
+          {/* Authors paragraph removed */}
         </CardContent>
         <div className="mt-auto p-4 pt-2 border-t border-border">
           <Button asChild variant="link" className="text-primary p-0 h-auto hover:text-primary/80">
