@@ -153,33 +153,49 @@ export interface Publication {
   id: string;
   title: string;
   authors: string;
-  conference: string;
+  conference: string; // Can be journal or conference name
   year: string;
   link: string;
-  icon?: LucideIcon; // e.g., for IEEE, Springer
   publisherIcon?: LucideIcon;
 }
 
 export const publicationsData: Publication[] = [
   {
     id: "pub1",
-    title: "A Novel Approach to Secure Data Transmission in IoT Networks",
+    title: "A Brief Comparison on Machine Learning Algorithms Based on Various Applications: A Comprehensive Survey.",
     authors: "Saurav K. Yadav, et al.",
-    conference: "IEEE International Conference on Communications (ICC)",
-    year: "2024",
-    link: "#", // Add actual link
-    publisherIcon: BookOpen, // Generic icon for IEEE
+    conference: "IEEE",
+    year: "2021",
+    link: "#", // Replace with actual link if available
+    publisherIcon: BookOpen,
   },
   {
     id: "pub2",
-    title: "Machine Learning for Predictive Maintenance in Industrial Systems",
+    title: "Chatbot Personalization: A Study of User-Centric Natural Language Processing in Python.",
     authors: "Saurav K. Yadav, et al.",
-    conference: "Springer Journal of Intelligent Manufacturing",
-    year: "2023",
-    link: "#", // Add actual link
-    publisherIcon: BookOpen, // Generic icon for Springer
+    conference: "Springer",
+    year: "2024",
+    link: "#", // Replace with actual link if available
+    publisherIcon: BookOpen,
   },
-  // Add more publications
+  {
+    id: "pub3",
+    title: "Resume shortlisting using NLP.",
+    authors: "Saurav K. Yadav, et al.",
+    conference: "IEEE",
+    year: "2024",
+    link: "#", // Replace with actual link if available
+    publisherIcon: BookOpen,
+  },
+  {
+    id: "pub4",
+    title: "Binary's Code- A coding platform",
+    authors: "Saurav K. Yadav, et al.",
+    conference: "International Journal of Research Publication and Reviews",
+    year: "2025",
+    link: "https://ijrpr.com/uploads/V5ISSUE11/IJRPR35459.pdf",
+    publisherIcon: BookOpen,
+  },
 ];
 
 
