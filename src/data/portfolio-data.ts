@@ -258,7 +258,7 @@ export const aboutMeData = {
   introduction: "Hi, I'm Saurav Kumar Yadav, a passionate Software Engineer and Web Developer with over 2 years of experience in crafting robust and scalable digital solutions. I specialize in frontend technologies like React and Next.js, but I'm comfortable across the full stack.",
   education: "I hold a Master's degree from IIT (ISM) Dhanbad, one of India's premier engineering institutes. My academic journey has been supported by full scholarships for both my Bachelor's and Master's programs, a testament to my dedication and performance.",
   passion: "My core passion lies in leveraging web technologies to build innovative products that solve real-world problems. I'm a firm believer in continuous learning and always eager to explore new tools and frameworks.",
-  profileImageUrl: "https://placehold.co/400x400.png", // This should be a valid placeholder or actual image URL
+  profileImageUrl: "https://media.licdn.com/dms/image/v2/D5603AQHa1rQwCvcufg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709628693388?e=1753920000&v=beta&t=fVwJNXHRiLAoQ7wFHTRdyzMjBRRVyM_m1ruZ8OawuwU", 
   profileImageHint: "profile portrait",
   resumeUrl: "#", // Replace with actual resume link
 };
@@ -290,8 +290,7 @@ if (codingPlatformProject && codingPlatformProject.imageUrl && codingPlatformPro
 
 // Ensure as-service.vercel.app is also allowed if it's used.
 // Ensure profileImageUrl in aboutMeData is either a placehold.co URL or an allowed Unsplash URL.
-if (aboutMeData.profileImageUrl && !aboutMeData.profileImageUrl.startsWith("https://placehold.co")) {
+if (aboutMeData.profileImageUrl && !aboutMeData.profileImageUrl.startsWith("https://placehold.co") && !aboutMeData.profileImageUrl.startsWith("https://media.licdn.com")) {
     // If it's meant to be an unsplash image, ensure it's from an allowed domain.
     // For now, it's placehold.co, which is fine.
 }
-
