@@ -6,7 +6,6 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
-// Removed: import { tailorContactMessage } from "@/ai/flows/tailor-contact-message";
 
 import { SectionWrapper, MotionDiv } from "@/components/section-wrapper";
 import { Button } from "@/components/ui/button";
@@ -14,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Code2, Mail, Phone, Send, Loader2 } from "lucide-react"; // Removed Bot, Sparkles
+import { Github, Linkedin, Code2, Mail, Phone, Send, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -22,8 +21,6 @@ const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
-  // Removed: jobRole: z.string().optional(),
-  // Removed: companyCulture: z.string().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -37,26 +34,16 @@ const socialLinks = [
 export function ContactSection() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // Removed: const [isTailoring, setIsTailoring] = useState(false);
-  // Removed: const [tailoredMessage, setTailoredMessage] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    // Removed: watch,
-    // Removed: setValue,
     reset,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
-
-  // Removed: const originalMessage = watch("message");
-  // Removed: const jobRole = watch("jobRole");
-  // Removed: const companyCulture = watch("companyCulture");
-
-  // Removed: handleTailorMessage function
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
@@ -92,7 +79,6 @@ export function ContactSection() {
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
       reset();
-      // Removed: setTailoredMessage(null);
     } catch (error) {
       console.error("Failed to send email:", error);
       toast({
@@ -127,6 +113,9 @@ export function ContactSection() {
               <motion.a whileHover={{x:5}} href="tel:+919155917535" className="flex items-center text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="mr-3 h-5 w-5 text-primary" /> +91-9155917535
               </motion.a>
+              <motion.a whileHover={{x:5}} href="tel:+9779842483338" className="flex items-center text-muted-foreground hover:text-primary transition-colors">
+                <Phone className="mr-3 h-5 w-5 text-primary" /> +977-9842483338
+              </motion.a>
             </div>
           </div>
           <div>
@@ -159,7 +148,6 @@ export function ContactSection() {
               {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
             </motion.div>
             
-            {/* Removed AI Tailoring section header and input fields */}
 
             <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
               <Label htmlFor="message">Your Message</Label>
@@ -174,8 +162,7 @@ export function ContactSection() {
             </motion.div>
             
             <div className="flex flex-col sm:flex-row gap-3">
-              {/* Removed "Tailor with AI" button */}
-              <Button type="submit" disabled={isSubmitting} className="w-full group"> {/* Adjusted to full width */}
+              <Button type="submit" disabled={isSubmitting} className="w-full group">
                 {isSubmitting ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
@@ -190,5 +177,3 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
-
-    

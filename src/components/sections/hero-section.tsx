@@ -1,10 +1,11 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, MessageSquare } from "lucide-react";
-import { heroSkillsSequence, aboutMeData } from "@/data/portfolio-data";
+import { ArrowRight, MessageSquare } from "lucide-react"; // Removed Download icon
+import { heroSkillsSequence } from "@/data/portfolio-data";
 import Link from "next/link";
 import React from "react";
 
@@ -97,11 +98,7 @@ export function HeroSection() {
             variants={itemVariants}
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button asChild size="lg" className="w-full sm:w-auto shadow-lg hover:shadow-primary/50 transform transition-all duration-300 hover:scale-105">
-              <Link href={aboutMeData.resumeUrl} target="_blank" rel="noopener noreferrer">
-                View Resume <Download className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+            {/* "View Resume" button removed */}
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto shadow-lg hover:shadow-accent/50 transform transition-all duration-300 hover:scale-105 hover:border-accent">
               <Link href="#contact">
                 Let&apos;s Connect <MessageSquare className="ml-2 h-5 w-5" />

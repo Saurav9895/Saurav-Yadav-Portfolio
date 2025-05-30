@@ -155,7 +155,6 @@ export const experienceData: Experience[] = [
 export interface Publication {
   id: string;
   title: string;
-  // authors: string; // Removed authors
   conference: string; // Can be journal or conference name
   year: string;
   link: string;
@@ -166,7 +165,6 @@ export const publicationsData: Publication[] = [
   {
     id: "pub1",
     title: "A Brief Comparison on Machine Learning Algorithms Based on Various Applications: A Comprehensive Survey.",
-    // authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2021",
     link: "https://ieeexplore.ieee.org/document/9683524",
@@ -175,16 +173,14 @@ export const publicationsData: Publication[] = [
   {
     id: "pub2",
     title: "Chatbot Personalization: A Study of User-Centric Natural Language Processing in Python.",
-    // authors: "Saurav K. Yadav, et al.",
     conference: "Springer",
     year: "2024",
-    link: "#", // Placeholder link, update if available
+    link: "#", 
     publisherIcon: BookOpen,
   },
   {
     id: "pub3",
     title: "Resume shortlisting using NLP.",
-    // authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2024",
     link: "https://ieeexplore.ieee.org/document/10502580",
@@ -193,7 +189,6 @@ export const publicationsData: Publication[] = [
   {
     id: "pub4",
     title: "Binary's Code- A coding platform",
-    // authors: "Saurav K. Yadav, et al.",
     conference: "International Journal of Research Publication and Reviews",
     year: "2025",
     link: "https://ijrpr.com/uploads/V5ISSUE11/IJRPR35459.pdf",
@@ -260,7 +255,7 @@ export const aboutMeData = {
   passion: "My core passion lies in leveraging web technologies to build innovative products that solve real-world problems. I'm a firm believer in continuous learning and always eager to explore new tools and frameworks.",
   profileImageUrl: "https://media.licdn.com/dms/image/v2/D5603AQHa1rQwCvcufg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709628693388?e=1753920000&v=beta&t=fVwJNXHRiLAoQ7wFHTRdyzMjBRRVyM_m1ruZ8OawuwU",
   profileImageHint: "profile portrait",
-  resumeUrl: "#", // Replace with actual resume link
+  // resumeUrl: "#", // Removed as it's no longer used
 };
 
 projectsData.forEach(project => {
