@@ -1,19 +1,18 @@
 
 "use client";
 
-import React, { useState, useRef } from "react";
+import React from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import emailjs from "@emailjs/browser";
 
 import { SectionWrapper, MotionDiv } from "@/components/section-wrapper";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { Linkedin, Mail, Phone, Send, Loader2, Facebook, Instagram } from "lucide-react";
+// Removed useToast as it's not used for submission status with formsubmit.co
+import { Linkedin, Mail, Phone, Send, Facebook, Instagram } from "lucide-react"; // Removed Loader2
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -32,64 +31,18 @@ const socialLinks = [
 ];
 
 export function ContactSection() {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  // Removed isSubmitting state and formRef
 
   const {
     register,
-    handleSubmit,
+    handleSubmit, // handleSubmit is kept for react-hook-form's validation triggering
     formState: { errors },
-    reset,
+    reset, // Kept reset, though formsubmit.co might redirect away
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
-    setIsSubmitting(true);
-    
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
-
-    if (!serviceId || !templateId || !userId) {
-      toast({
-        title: "Configuration Error",
-        description: "Email service is not configured correctly. Please contact the administrator.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-    
-    if (!formRef.current) {
-        toast({
-            title: "Error",
-            description: "Form reference not found.",
-            variant: "destructive",
-        });
-        setIsSubmitting(false);
-        return;
-    }
-
-    try {
-      await emailjs.sendForm(serviceId, templateId, formRef.current , userId);
-      toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      reset();
-    } catch (error) {
-      console.error("Failed to send email:", error);
-      toast({
-        title: "Error Sending Message",
-        description: "Could not send your message. Please try again later or contact me directly via email.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  // Removed onSubmit handler that used emailjs
 
   const inputVariants = {
     rest: { scale: 1, boxShadow: "0px 0px 0px hsla(var(--primary), 0)" },
@@ -135,7 +88,27 @@ export function ContactSection() {
         </MotionDiv>
 
         <MotionDiv className="bg-card p-6 sm:p-8 rounded-xl shadow-2xl border border-border">
-          <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          {/* Updated form tag for formsubmit.co */}
+          <form 
+            action="https://formsubmit.co/d05b9a01cadd0e30d9d19750244bbc07" 
+            method="POST" 
+            className="space-y-6"
+            onSubmit={handleSubmit(() => {
+              // RHF validation runs. If it passes, form submits.
+              // We can call reset() here, but formsubmit.co often redirects.
+              // Consider if reset is needed or if redirect handles clearing.
+              // For now, let's keep reset optimistic, it might not visually do much if redirect is fast.
+              setTimeout(() => reset(), 100); // Small delay for submission to potentially start
+            })}
+          >
+            {/* Hidden field for subject */}
+            <input type="hidden" name="_subject" value="New Contact Form Submission - SK Yadav Portfolio" />
+            {/* Optional: redirect to a thank you page on your site */}
+            {/* <input type="hidden" name="_next" value="https://yoursite.com/thankyou.html" /> */}
+            {/* Optional: disable captcha (not recommended for live sites) */}
+            {/* <input type="hidden" name="_captcha" value="false" /> */}
+
+
             <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
               <Label htmlFor="name">Full Name</Label>
               <Input id="name" placeholder="Your Name" {...register("name")} className="mt-1"/>
@@ -148,7 +121,6 @@ export function ContactSection() {
               {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
             </motion.div>
             
-
             <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
               <Label htmlFor="message">Your Message</Label>
               <Textarea
@@ -162,12 +134,9 @@ export function ContactSection() {
             </motion.div>
             
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button type="submit" disabled={isSubmitting} className="w-full group">
-                {isSubmitting ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Send className="mr-2 h-4 w-4 group-hover:animate-pulse" />
-                )}
+              {/* Removed isSubmitting and Loader2 */}
+              <Button type="submit" className="w-full group">
+                <Send className="mr-2 h-4 w-4 group-hover:animate-pulse" />
                 Send Message
               </Button>
             </div>
@@ -177,3 +146,4 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
+
