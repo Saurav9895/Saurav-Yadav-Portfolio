@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useRef } from "react";
@@ -5,7 +6,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
-import { tailorContactMessage } from "@/ai/flows/tailor-contact-message";
+// Removed: import { tailorContactMessage } from "@/ai/flows/tailor-contact-message";
 
 import { SectionWrapper, MotionDiv } from "@/components/section-wrapper";
 import { Button } from "@/components/ui/button";
@@ -13,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Code2, Mail, Phone, Bot, Send, Loader2, Sparkles } from "lucide-react";
+import { Github, Linkedin, Code2, Mail, Phone, Send, Loader2 } from "lucide-react"; // Removed Bot, Sparkles
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -21,8 +22,8 @@ const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
-  jobRole: z.string().optional(),
-  companyCulture: z.string().optional(),
+  // Removed: jobRole: z.string().optional(),
+  // Removed: companyCulture: z.string().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -36,63 +37,30 @@ const socialLinks = [
 export function ContactSection() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isTailoring, setIsTailoring] = useState(false);
-  const [tailoredMessage, setTailoredMessage] = useState<string | null>(null);
+  // Removed: const [isTailoring, setIsTailoring] = useState(false);
+  // Removed: const [tailoredMessage, setTailoredMessage] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    setValue,
+    // Removed: watch,
+    // Removed: setValue,
     reset,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
 
-  const originalMessage = watch("message");
-  const jobRole = watch("jobRole");
-  const companyCulture = watch("companyCulture");
+  // Removed: const originalMessage = watch("message");
+  // Removed: const jobRole = watch("jobRole");
+  // Removed: const companyCulture = watch("companyCulture");
 
-  const handleTailorMessage = async () => {
-    if (!originalMessage || !jobRole || !companyCulture) {
-      toast({
-        title: "Missing Information",
-        description: "Please provide original message, job role, and company culture to tailor the message.",
-        variant: "destructive",
-      });
-      return;
-    }
-    setIsTailoring(true);
-    try {
-      const result = await tailorContactMessage({
-        originalMessage,
-        jobRole,
-        companyCulture,
-      });
-      setTailoredMessage(result.tailoredMessage);
-      setValue("message", result.tailoredMessage); // Update the main message field
-      toast({
-        title: "Message Tailored!",
-        description: "AI has updated your message. You can edit it further or send.",
-      });
-    } catch (error) {
-      console.error("Error tailoring message:", error);
-      toast({
-        title: "Error Tailoring Message",
-        description: "Could not tailor the message. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsTailoring(false);
-    }
-  };
+  // Removed: handleTailorMessage function
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
     
-    // Ensure environment variables are set for EmailJS
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
@@ -124,7 +92,7 @@ export function ContactSection() {
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
       reset();
-      setTailoredMessage(null);
+      // Removed: setTailoredMessage(null);
     } catch (error) {
       console.error("Failed to send email:", error);
       toast({
@@ -191,16 +159,7 @@ export function ContactSection() {
               {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
             </motion.div>
             
-            <h4 className="text-md font-semibold text-foreground border-t border-border pt-4">AI Message Tailoring (Optional)</h4>
-             <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
-              <Label htmlFor="jobRole">Job Role (for AI tailoring)</Label>
-              <Input id="jobRole" placeholder="e.g., Frontend Developer" {...register("jobRole")} className="mt-1"/>
-            </motion.div>
-
-            <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
-              <Label htmlFor="companyCulture">Company Culture (for AI tailoring)</Label>
-              <Input id="companyCulture" placeholder="e.g., Fast-paced, innovative, collaborative" {...register("companyCulture")} className="mt-1"/>
-            </motion.div>
+            {/* Removed AI Tailoring section header and input fields */}
 
             <motion.div variants={inputVariants} initial="rest" whileHover="hover" whileFocus="focus">
               <Label htmlFor="message">Your Message</Label>
@@ -215,21 +174,8 @@ export function ContactSection() {
             </motion.div>
             
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={handleTailorMessage}
-                disabled={isTailoring || !originalMessage || !jobRole || !companyCulture}
-                className="w-full sm:w-auto group"
-              >
-                {isTailoring ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Sparkles className="mr-2 h-4 w-4 group-hover:text-accent transition-colors" />
-                )}
-                Tailor with AI
-              </Button>
-              <Button type="submit" disabled={isSubmitting} className="w-full sm:flex-1 group">
+              {/* Removed "Tailor with AI" button */}
+              <Button type="submit" disabled={isSubmitting} className="w-full group"> {/* Adjusted to full width */}
                 {isSubmitting ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
@@ -244,3 +190,5 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
+
+    
