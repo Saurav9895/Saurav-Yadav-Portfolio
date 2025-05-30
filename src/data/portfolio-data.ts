@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Code, Database, Wind, Cpu, Palette, GitBranch, GraduationCap, Briefcase, BookOpen, Award, Star, TrendingUp, Bot } from 'lucide-react';
+import { Code, Database, Wind, Cpu, Palette, GitBranch, GraduationCap, Briefcase, BookOpen, Award, Star, TrendingUp, Bot, Users } from 'lucide-react'; // Added Users just in case, though Star is preferred for Enigma
 
 export interface Skill {
   name: string;
@@ -166,7 +166,7 @@ export const publicationsData: Publication[] = [
     authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2021",
-    link: "#", // Replace with actual link if available
+    link: "#", 
     publisherIcon: BookOpen,
   },
   {
@@ -175,7 +175,7 @@ export const publicationsData: Publication[] = [
     authors: "Saurav K. Yadav, et al.",
     conference: "Springer",
     year: "2024",
-    link: "#", // Replace with actual link if available
+    link: "#", 
     publisherIcon: BookOpen,
   },
   {
@@ -184,7 +184,7 @@ export const publicationsData: Publication[] = [
     authors: "Saurav K. Yadav, et al.",
     conference: "IEEE",
     year: "2024",
-    link: "#", // Replace with actual link if available
+    link: "#",
     publisherIcon: BookOpen,
   },
   {
@@ -209,39 +209,32 @@ export interface Achievement {
 
 export const achievementsData: Achievement[] = [
   {
-    id: "scholarship-masters",
-    title: "Full Scholarship (Masters)",
-    description: "Awarded a full scholarship for Master's degree at IIT Dhanbad.",
-    icon: GraduationCap,
-    year: "2022-2024",
+    id: "placement-coordinator",
+    title: "Placement Coordinator | CSE",
+    description: "Served as Placement Coordinator for the CSE department.",
+    icon: Briefcase,
+    year: "Nov 2022 - July 2024",
+  },
+  {
+    id: "enigma-head-ops",
+    title: "Head of Operations | ENIGMA Club",
+    description: "Led the operational team for ENIGMA, the official coding club.",
+    icon: Star, 
+    year: "Jan 2023 - Dec 2023",
   },
   {
     id: "scholarship-bachelors",
-    title: "Full Scholarship (Bachelors)",
-    description: "Received a full scholarship for Bachelor's degree.",
+    title: "Study in India Scholarship (Bachelors)",
+    description: "Awarded a full scholarship to pursue Bachelor’s degree through the Study in India program.",
     icon: GraduationCap,
-    year: "2018-2022",
+    // Year can be added if known, e.g., "2018-2022"
   },
   {
-    id: "enigma-lead",
-    title: "ENIGMA Club Lead",
-    description: "Led the competitive programming wing of ENIGMA, the coding club of IIT (ISM) Dhanbad.",
-    icon: Star,
-    year: "2021-2022",
-  },
-  {
-    id: "enigma-coordinator",
-    title: "ENIGMA Club Coordinator",
-    description: "Coordinated events and activities for ENIGMA club.",
-    icon: TrendingUp,
-    year: "2020-2021",
-  },
-   {
-    id: "hackathon-winner",
-    title: "Hackathon Winner",
-    description: "Secured 1st place in university-level hackathon.",
-    icon: Award,
-    year: "2021",
+    id: "scholarship-masters",
+    title: "Full Scholarship (Masters)",
+    description: "Awarded a full scholarship to pursue Master’s degree.",
+    icon: GraduationCap,
+    // Year can be added if known, e.g., "2022-2024"
   },
 ];
 
@@ -268,4 +261,3 @@ export const aboutMeData = {
   profileImageHint: "profile portrait",
   resumeUrl: "#", // Replace with actual resume link
 };
-
