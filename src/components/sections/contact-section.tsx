@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Code2, Mail, Phone, Send, Loader2 } from "lucide-react";
+import { Linkedin, Mail, Phone, Send, Loader2, Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -26,9 +26,9 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com/saurav9895" },
   { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/saurav-yadav-434842207/" },
-  { name: "LeetCode", icon: Code2, href: "https://leetcode.com/u/saurav9895/" },
+  { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/saurav.yadav.65256" },
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/_y.saurav_/" },
 ];
 
 export function ContactSection() {
