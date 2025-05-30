@@ -1,3 +1,4 @@
+
 "use client";
 
 import { SectionWrapper, MotionDiv } from "@/components/section-wrapper";
@@ -13,14 +14,17 @@ export function SkillsSection() {
 
   return (
     <SectionWrapper id="skills" title="My Tech Arsenal" subtitle="Technologies and tools I'm proficient with.">
-      <div className="space-y-12">
+      <div className="grid md:grid-cols-2 gap-8">
         {skillsData.map((category: SkillCategory, categoryIndex: number) => {
           const CategoryIcon = category.icon as LucideIcon;
           return (
             <MotionDiv 
               key={category.name} 
-              className="p-6 bg-card rounded-xl shadow-lg border border-border"
+              className="p-6 bg-card rounded-xl shadow-lg border border-border h-full" // Added h-full for consistent card height if needed
               variants={categoryVariants}
+              // initial="hidden" // Handled by SectionWrapper's staggerChildren
+              // animate="visible" // Handled by SectionWrapper's staggerChildren
+              // viewport={{ once: true, amount: 0.3 }} // Handled by SectionWrapper
             >
               <h3 className="text-2xl font-semibold mb-6 text-foreground flex items-center">
                 {CategoryIcon && <CategoryIcon className="mr-3 h-7 w-7 text-primary" />}
@@ -30,7 +34,7 @@ export function SkillsSection() {
                 {category.skills.map((skill, skillIndex) => (
                   <SkillBadge key={skill.name} skill={skill} index={skillIndex} />
                 ))}
-              </div>
+                            </div>
             </MotionDiv>
           );
         })}
