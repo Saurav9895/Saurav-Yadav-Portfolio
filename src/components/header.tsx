@@ -8,7 +8,7 @@ import React from "react";
 import { Button } from "@/components/ui/button"; // Added import
 
 const navItems = [
-  { name: "About", href: "#about" },
+  { name: "About", href: "about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
