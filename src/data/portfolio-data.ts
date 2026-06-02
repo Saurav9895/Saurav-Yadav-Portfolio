@@ -253,7 +253,7 @@ export const aboutMeData = {
   introduction: "Hi, I'm Saurav Kumar Yadav, a passionate Software Engineer and Web Developer with over 2 years of experience in crafting robust and scalable digital solutions. I specialize in frontend technologies like React and Next.js, but I'm comfortable across the full stack.",
   education: "I hold a Master's degree from IIT (ISM) Dhanbad, one of India's premier engineering institutes. My academic journey has been supported by full scholarships for both my Bachelor's and Master's programs, a testament to my dedication and performance.",
   passion: "My core passion lies in leveraging web technologies to build innovative products that solve real-world problems. I'm a firm believer in continuous learning and always eager to explore new tools and frameworks.",
-  profileImageUrl: "https://media.licdn.com/dms/image/v2/D5603AQHa1rQwCvcufg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709628693388?e=1753920000&v=beta&t=fVwJNXHRiLAoQ7wFHTRdyzMjBRRVyM_m1ruZ8OawuwU",
+  profileImageUrl: "/profile.png",
   profileImageHint: "profile portrait",
   // resumeUrl: "#", // Removed as it's no longer used
 };

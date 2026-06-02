@@ -44,9 +44,8 @@ export function AboutSection() {
             <Image
               src={aboutMeData.profileImageUrl}
               alt="Saurav Kumar Yadav"
-              layout="fill"
-              objectFit="cover"
-              className="transform transition-transform duration-500 ease-out group-hover:scale-110"
+              fill
+              className="object-cover transform transition-transform duration-500 ease-out group-hover:scale-110"
               data-ai-hint={aboutMeData.profileImageHint}
             />
           </motion.div>
