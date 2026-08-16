@@ -33,6 +33,7 @@ export const skillsData: SkillCategory[] = [
       { name: "JavaScript" },
       { name: "React" },
       { name: "Next.js" },
+      { name: "Angular" },
       { name: "Bootstrap" },
     ],
   },
@@ -68,6 +69,15 @@ export interface Project {
 }
 
 export const projectsData: Project[] = [
+  {
+    id: "trajectory-prediction",
+    name: "Trajectory Prediction of Autonomous Vehicle",
+    techStack: ["Python", "Deep Learning", "PyTorch", "LSTM"],
+    description: "A deep learning model that predicts the future trajectory of target vehicles in autonomous driving scenarios, enabling safer path planning and collision avoidance.",
+    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imageHint: "autonomous vehicle road",
+    githubLink: "https://github.com/Saurav9895/Trajectory-Prediction-with-the-combination-of-grid-and-graph",
+  },
   {
     id: "coding-platform",
     name: "Coding Platform",
@@ -112,7 +122,6 @@ export const projectsData: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1727622738037-65923e2319d9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageHint: "rc car",
     githubLink: "https://github.com/Saurav9895/aurdino",
-
   },
 ];
 
@@ -126,6 +135,26 @@ export interface Experience {
 }
 
 export const experienceData: Experience[] = [
+  {
+    id: "larsen-toubro",
+    role: "Full Stack Developer",
+    company: "Larsen & Toubro",
+    period: "July 2026 – Present",
+    description: [
+      "Developing and maintaining full-stack applications for enterprise-scale projects.",
+    ],
+    icon: TrendingUp,
+  },
+  {
+    id: "smartly-built",
+    role: "Frontend Developer",
+    company: "Smartly Built",
+    period: "Aug 2025 – Mar 2026",
+    description: [
+      "Built responsive Angular UIs with reusable components and RESTful API integration, delivering features like Kanban boards and workflow modules while optimizing performance.",
+    ],
+    icon: Palette,
+  },
   {
     id: "inspire-group-nepal",
     role: "Web Developer",
@@ -149,6 +178,42 @@ export const experienceData: Experience[] = [
       "Worked closely with team members in an Agile environment.",
     ],
     icon: Briefcase,
+  },
+];
+
+export interface FreelanceProject {
+  id: string;
+  name: string;
+  client: string;
+  techStack: string[];
+  description: string;
+  icon?: LucideIcon;
+}
+
+export const freelanceData: FreelanceProject[] = [
+  {
+    id: "gifthopia",
+    name: "Gifthopia",
+    client: "Kalika Enterprises",
+    techStack: ["React", "Node.js", "MongoDB", "Express"],
+    description: "A full-stack e-commerce website built for a gift shop, featuring product listings, cart management, order tracking, and an admin dashboard.",
+    icon: TrendingUp,
+  },
+  {
+    id: "kalika-sales-ledger",
+    name: "Sales Ledger System",
+    client: "Kalika Enterprises",
+    techStack: ["React", "Node.js", "MySQL", "Express"],
+    description: "A comprehensive full-stack sales ledger application for tracking transactions, invoices, and financial records for Kalika Enterprises.",
+    icon: Database,
+  },
+  {
+    id: "zeta-restaurant",
+    name: "Zeta Restaurant Management System",
+    client: "Zeta Restaurant",
+    techStack: ["React", "Node.js", "MongoDB", "Express"],
+    description: "A complete restaurant management system handling table reservations, menu management, order processing, and staff coordination for seamless operations.",
+    icon: Users,
   },
 ];
 
