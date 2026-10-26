@@ -36,7 +36,8 @@ export function TimelineItem({ item }: TimelineItemProps) {
       <div className="flex-1 bg-card border border-border p-4 md:p-6 rounded-xl shadow-lg">
         <h3 className="text-xl font-semibold text-foreground">{item.role}</h3>
         <p className="text-sm text-primary mb-1">{item.company}</p>
-        <p className="text-xs text-muted-foreground mb-3">{item.period}</p>
+        <p className="text-xs text-muted-foreground">{item.location && `${item.location} · `}{item.period}</p>
+        <div className="mb-3" />
         <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
           {item.description.map((desc, index) => (
             <li key={index}>{desc}</li>

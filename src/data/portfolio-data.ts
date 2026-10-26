@@ -129,6 +129,7 @@ export interface Experience {
   id: string;
   role: string;
   company: string;
+  location?: string;
   period: string;
   description: string[];
   icon?: LucideIcon;
@@ -137,45 +138,58 @@ export interface Experience {
 export const experienceData: Experience[] = [
   {
     id: "larsen-toubro",
-    role: "Full Stack Developer",
-    company: "Larsen & Toubro",
-    period: "July 2026 – Present",
+    role: "Post Graduate Engineer Trainee",
+    company: "Larsen & Toubro Limited",
+    location: "Chennai, India",
+    period: "Jul 2026 – Present",
     description: [
-      "Developing and maintaining full-stack applications for enterprise-scale projects.",
+      "Developed and maintained application features based on approved business requirements and technical specifications.",
+      "Developed and optimized SQL queries and stored procedures to support application functionality and data validation.",
+      "Implemented application logic using C#, .NET, and Angular to deliver reliable and maintainable solutions.",
+      "Integrated APIs and application components to ensure seamless data exchange and system functionality.",
     ],
     icon: TrendingUp,
   },
   {
-    id: "smartly-built",
+    id: "smartly-build",
     role: "Frontend Developer",
-    company: "Smartly Built",
-    period: "Aug 2025 – Mar 2026",
+    company: "Smartly Build",
+    location: "New York, USA (Remote)",
+    period: "Aug 2025 – Jun 2026",
     description: [
-      "Built responsive Angular UIs with reusable components and RESTful API integration, delivering features like Kanban boards and workflow modules while optimizing performance.",
+      "Developed dynamic and responsive user interfaces using Angular, ensuring smooth performance across devices.",
+      "Integrated RESTful APIs to enable real-time data rendering and seamless functionality.",
+      "Built reusable and modular components to enhance scalability and maintainability.",
+      "Worked on key features like Kanban boards, opportunity pipelines, and workflow modules.",
+      "Collaborated with backend teams for efficient data handling and integration.",
+      "Identified and fixed bugs while optimizing overall application performance and user experience.",
     ],
     icon: Palette,
   },
   {
     id: "inspire-group-nepal",
-    role: "Web Developer",
-    company: "Inspire Group Nepal Pvt. Ltd.",
-    period: "Feb 2024 – Oct 2024",
+    role: "Developer",
+    company: "Inspire Group of Nepal Pvt. Ltd.",
+    location: "Kathmandu, Nepal",
+    period: "Jan 2024 – Jul 2024",
     description: [
-      "Built and maintained full-stack web apps using modern technologies.",
-      "Teamed up with designers and testers to deliver quality products.",
-      "Participated in reviews to enhance code standards and workflows.",
+      "Developed and maintained CRM-based websites and updated website content and functionality according to client requirements.",
+      "Developed a sales ledger management system to maintain daily customer purchase records, track sales transactions and payments, and manage customer transaction history.",
+      "Developed a restaurant management system to support day-to-day restaurant operations and management workflows.",
     ],
     icon: Code,
   },
   {
     id: "digital-shikhar",
-    role: "Software Development Engineer",
+    role: "Web Developer",
     company: "Digital Shikhar Pvt. Ltd.",
-    period: "Jan 2021 – Jan 2024",
+    location: "Kathmandu, Nepal",
+    period: "Jan 2022 – Dec 2023",
     description: [
-      "Helped develop Uparkart, a scalable e-commerce platform.",
-      "Built frontend and backend features using React and Node.js",
-      "Worked closely with team members in an Agile environment.",
+      "Developed and optimized dynamic websites tailored to client and business needs, enhancing user experience and functionality.",
+      "Spearheaded the development of a fully functional website for Upakart Logistics, ensuring alignment with business objectives and client requirements.",
+      "Assisted in the successful integration of products into the Upakart eCommerce platform, ensuring seamless functionality and user experience.",
+      "Developed an e-commerce website for a toy shop, enabling customers to browse products through a user-friendly interface.",
     ],
     icon: Briefcase,
   },
